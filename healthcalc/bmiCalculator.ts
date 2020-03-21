@@ -1,6 +1,6 @@
 interface BmiValues {
-  height: number,
-  weight: number
+  height: number;
+  weight: number;
 }
 
 const parseArguments = (args: Array<string>): BmiValues => {
@@ -17,7 +17,7 @@ const parseArguments = (args: Array<string>): BmiValues => {
   }
 }
 
-const calculateBmi = (height: number, weight: number): String => {
+const calculateBmi = (height: number, weight: number): string => {
   const bmi = weight / Math.pow(height / 100, 2)
   if (bmi < 18.5) {
     return 'Underweight (unhealthy weight)'
