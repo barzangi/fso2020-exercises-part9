@@ -1,8 +1,12 @@
 import express from 'express'
 const app = express()
 
-import calculateBmi from './modules/bmiCalc'
+app.use(express.json())
 
+import calculateBmi from './modules/bmiCalc'
+import calculateExercises from './modules/exerciseCalc'
+
+// bmi calculator
 app.get('/bmi', (req, res) => {
   const { height, weight } = req.query
   if (!height || !weight) {
@@ -19,6 +23,23 @@ app.get('/bmi', (req, res) => {
     weight,
     bmi
   })
+})
+
+// exercise calculator
+app.post('/exercises', (req, res) => {
+  const { dailyExercises, target } = req.body
+  if (!dailyExercises || !target) {
+    res.status(401).json({ error: 'missing parameters' })
+    return
+  }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const dailyExercisesNum = dailyExercises.map((i: any) => Number(i))
+  if (dailyExercisesNum.some(isNaN)) {
+    res.status(401).json({ error: 'malformatted parameters' })
+    return
+  }
+  const exerciseResults = calculateExercises(dailyExercisesNum, target)
+  res.json(exerciseResults)
 })
 
 const PORT = 3003
