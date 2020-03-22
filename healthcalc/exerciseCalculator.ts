@@ -1,16 +1,16 @@
 interface Results {
-  periodLength: number,
-  trainingDays: number,
-  success: boolean,
-  rating: number,
-  ratingDescription: string,
-  target: number,
-  average: number
+  periodLength: number;
+  trainingDays: number;
+  success: boolean;
+  rating: number;
+  ratingDescription: string;
+  target: number;
+  average: number;
 }
 
 interface ExerciseArgs {
-  exerciseHours: Array<number>,
-  target: number
+  exerciseHours: Array<number>;
+  target: number;
 }
 
 const parseArgs = (args: Array<string>): ExerciseArgs => {
