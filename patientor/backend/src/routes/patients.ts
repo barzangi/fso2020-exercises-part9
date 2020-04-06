@@ -4,10 +4,12 @@ import toNewPatientEntry from '../utils'
 
 const router = express.Router()
 
+// get all patients (hide ssn)
 router.get('/', (_req, res) => {
   res.send(patientService.getPublicPatients())
 })
 
+// add new patient entry
 router.post('/', (req, res) => {
   try {
     const newPatientEntry = toNewPatientEntry(req.body)
@@ -18,6 +20,7 @@ router.post('/', (req, res) => {
   }
 })
 
+// get single patient data by id
 router.get('/:id', (req, res) => {
   try {
     const patient = patientService.getPatient(req.params.id)
