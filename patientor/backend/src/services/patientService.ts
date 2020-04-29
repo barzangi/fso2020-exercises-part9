@@ -1,7 +1,6 @@
 import patients from '../../data/patients'
 import { Patient, PublicPatient, NewPatientEntry, Entry } from '../types'
 import { v1 as uuidv1 } from 'uuid'
-import diagnosisEntries from '../../data/diagnoses'
 
 // get all patients (all fields)
 const getPatients = (): Patient[] => {
