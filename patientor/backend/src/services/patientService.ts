@@ -36,7 +36,7 @@ const getPatient = (id: string): Patient | undefined => {
 }
 
 // add healthcare entry to patient
-const addHealthcareEntry = (id: string, healthcareEntry: Entry): Patient | string | undefined => {
+const addHealthcareEntry = (id: string, healthcareEntry: Entry): Patient => {
   const patient = patients.find(p => p.id === id)
   if (!patient) throw new Error('error: malformed patient id')
   if (!healthcareEntry.date || !healthcareEntry.description || !healthcareEntry.specialist) throw new Error('error: required data missing')
