@@ -69,8 +69,8 @@ const SinglePatientPage: React.FC = () => {
       <>
         <h2>Entries</h2>
         {singlePatient.entries.map(entry =>
-          <div className='entryStyle'>
-            <EntryDetails key={entry.id} entry={entry} />
+          <div className='entryStyle' key={entry.id}>
+            <EntryDetails entry={entry} />
           </div>
         )}
       </>
