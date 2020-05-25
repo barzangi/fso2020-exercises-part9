@@ -4,7 +4,11 @@ Content-Type: application/json
 {
   "date": "2020-01-01",
   "specialist": "Dr. Dre",
-  "type": "HealthCheck",
-  "description": "Patient complains of recurring migraine. Medication prescribed.",
-  "healthCheckRating": 2
+  "type": "Hospital",
+  "description": "Patient complains of severe reproductive cough. Medications prescribed.",
+  "diagnosisCodes": ["J06.9"],
+  "discharge": {
+    "date": "2020-01-14",
+    "criteria": "Patient fully cured."
+  }
 }
