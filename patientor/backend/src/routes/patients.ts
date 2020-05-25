@@ -33,8 +33,8 @@ router.get('/:id', (req, res) => {
 // add healthcare entry to patient
 router.post('/:id/entries', (req, res) => {
   try {
-    const addedHealthcareEntry = patientService.addHealthcareEntry(req.params.id, req.body)
-    res.json(addedHealthcareEntry)
+    const updatedPatient = patientService.addHealthcareEntry(req.params.id, req.body)
+    res.json(updatedPatient)
   } catch (e) {
     res.status(400).send(e.message)
   }
